@@ -2,39 +2,211 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
   <title>A Quiet Space</title>
-  <meta name="description" content="A Quiet Space">
+  <meta
+    name="description"
+    content="A Quiet Space — observations, photographs, essays and other bits and pieces collected along the way."
+  >
 
   <style>
-    html, body {
+    :root {
+      --ink: #493b30;
+      --paper: #ead0aa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
       margin: 0;
-      width: 100%;
-      height: 100%;
-      background: #ead1ae;
-      overflow: hidden;
+      min-height: 100%;
+      background: var(--paper);
+      color: var(--ink);
     }
 
     body {
-      display: grid;
-      place-items: center;
+      font-family: Georgia, "Times New Roman", serif;
     }
 
-    img {
-      display: block;
-      max-width: 100vw;
-      max-height: 100vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
+    .page {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: minmax(0, 54%) minmax(0, 46%);
+      background:
+        linear-gradient(
+          90deg,
+          rgba(234, 208, 170, 1) 0%,
+          rgba(234, 208, 170, 1) 43%,
+          rgba(234, 208, 170, 0.96) 49%,
+          rgba(234, 208, 170, 0.68) 55%,
+          rgba(234, 208, 170, 0.16) 64%,
+          rgba(234, 208, 170, 0) 72%
+        ),
+        url("deck.jpg") center 58% / cover no-repeat;
+    }
+
+    .copy {
+      align-self: center;
+      width: min(610px, 100%);
+      padding: clamp(34px, 5.2vw, 88px);
+      padding-right: clamp(28px, 4vw, 64px);
+    }
+
+    h1 {
+      margin: 0 0 clamp(26px, 3.5vh, 44px);
+      font-size: clamp(36px, 4.2vw, 64px);
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0 0 1.05em;
+      font-size: clamp(17px, 1.35vw, 21px);
+      line-height: 1.48;
+    }
+
+    .quiet-list {
+      margin: 1.35em 0 1.5em;
+    }
+
+    .quiet-list p {
+      margin: 0.18em 0;
+    }
+
+    .found {
+      margin: 1.55em 0 1.65em;
+      font-size: clamp(19px, 1.55vw, 23px);
+      font-weight: 700;
+      line-height: 1.38;
+    }
+
+    .closing {
+      margin-top: 1.55em;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        display: block;
+        min-height: 100svh;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(234, 208, 170, 0.93) 0%,
+            rgba(234, 208, 170, 0.90) 54%,
+            rgba(234, 208, 170, 0.82) 78%,
+            rgba(234, 208, 170, 0.70) 100%
+          ),
+          url("deck.jpg") center 63% / cover no-repeat;
+      }
+
+      .copy {
+        width: 100%;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding:
+          max(30px, env(safe-area-inset-top))
+          26px
+          max(30px, env(safe-area-inset-bottom));
+      }
+
+      h1 {
+        font-size: clamp(34px, 10vw, 46px);
+        margin-bottom: 24px;
+      }
+
+      p {
+        font-size: clamp(16px, 4.15vw, 18px);
+        line-height: 1.42;
+        margin-bottom: 0.9em;
+      }
+
+      .quiet-list {
+        margin: 1.05em 0 1.2em;
+      }
+
+      .found {
+        font-size: clamp(18px, 4.7vw, 20px);
+        margin: 1.15em 0 1.25em;
+      }
+
+      .closing {
+        margin-top: 1.15em;
+      }
+    }
+
+    @media (max-height: 720px) and (max-width: 760px) {
+      .copy {
+        justify-content: flex-start;
+        padding-top: 24px;
+        padding-bottom: 24px;
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 18px;
+      }
+
+      p {
+        font-size: 15.5px;
+        line-height: 1.36;
+        margin-bottom: 0.7em;
+      }
+
+      .quiet-list {
+        margin: 0.8em 0 1em;
+      }
+
+      .found {
+        font-size: 17px;
+        margin: 0.9em 0 1em;
+      }
+
+      .closing {
+        margin-top: 0.9em;
+      }
     }
   </style>
 </head>
 
 <body>
-  <img
-    src="landing-page.png"
-    alt="A Quiet Space"
-  >
+  <main class="page">
+    <section class="copy" aria-label="Welcome to A Quiet Space">
+      <h1>Welcome to A Quiet Space</h1>
+
+      <p>There is nothing you need to do here.</p>
+
+      <div class="quiet-list">
+        <p>Nothing to prepare for.</p>
+        <p>Nothing to achieve.</p>
+        <p>No particular state of mind required.</p>
+      </div>
+
+      <p class="found">
+        You already found it.<br>
+        You noticed.
+      </p>
+
+      <p>
+        I’m gathering things inside — little observations, photographs, essays
+        and other bits and pieces I have collected along the way.
+      </p>
+
+      <p>
+        Maybe you’ll recognize some of it. Maybe you won’t.
+      </p>
+
+      <div class="closing">
+        <p>Things are still being uncovered inside.</p>
+        <p>You are welcome to come back later.</p>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
